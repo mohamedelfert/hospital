@@ -9,10 +9,13 @@ Route::group(
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ], function () {
 
-    Route::prefix('dashboard')->name('dashboard.')->middleware(['auth','auto_check_permission'])->group(function () {
+    Route::prefix('dashboard')->name('dashboard.')->middleware(['auth', 'auto_check_permission'])->group(function () {
 
         /**************************** Dashboard *******************************/
         Route::get('/index', 'DashboardController@index')->name('index');
+
+        /**************************** Specialties *******************************/
+        Route::resource('specialties', 'SpecialtyController');
 
         /**************************** Users & Roles *******************************/
         Route::resource('users', 'UserController');

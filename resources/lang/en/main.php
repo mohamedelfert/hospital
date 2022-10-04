@@ -58,10 +58,16 @@ return [
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
 
+    'specialties' => 'Specialties',
+    'specialty' => 'Specialty',
+    'specialty_name_ar' => 'Specialty Name Arabic',
+    'specialty_name_en' => 'Specialty Name English',
+
     'data_added_successfully' => 'Data Added Successfully',
     'data_updated_successfully' => 'Data Updated Successfully',
     'data_deleted_successfully' => 'Data Deleted Successfully',
 
+    'notes' => 'Notes',
     'confirm' => 'Confirm',
     'cancel' => 'Cancel',
     'edit' => 'Edit',

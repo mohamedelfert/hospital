@@ -19,6 +19,7 @@
         "laravelcollective/html": "^6.3.0",
         "mcamara/laravel-localization": "^1.7.0",
         "spatie/laravel-permission": "^5.5.4",
+        "spatie/laravel-translatable": "*",
         "yoeunes/toastr": "^1.2.7"
     },
     "require-dev": {

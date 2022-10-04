@@ -58,10 +58,16 @@ return [
     'created_at' => 'تسجيل في',
     'updated_at' => 'تحديث في',
 
-    'data_added_successfully' => 'تم اضافه البيانات بنجاح',
+    'specialties' => 'التخصصات',
+    'specialty' => 'التخصص',
+    'specialty_name_ar' => 'اسم التخصص عربي',
+    'specialty_name_en' => 'اسم التخصص انجليزي',
+
+    'data_added_successfully' => 'تم إضافة البيانات بنجاح',
     'data_updated_successfully' => 'تم تحديث البيانات بنجاح',
     'data_deleted_successfully' => 'تم حذف البيانات بنجاح',
 
+    'notes' => 'ملاحظات',
     'confirm' => 'تأكيد',
     'cancel' => 'إلغاء',
     'edit' => 'تعديل',

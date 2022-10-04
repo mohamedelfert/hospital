@@ -25,13 +25,28 @@
             </div>
         </div>
         <ul class="side-menu">
+            <!-- Dashboard -->
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('dashboard.index') }}">
                     <i class="side-menu__icon fa fa-home"></i>
                     <span class="side-menu__label">@lang('main.dashboard')</span>
                 </a>
             </li>
+            <!-- Dashboard -->
 
+            <!-- Specialties -->
+            @can('specialty-list')
+                <li class="side-item side-item-category">@lang('main.specialties')</li>
+                <li class="slide">
+                    <a class="side-menu__item" href="{{ route('dashboard.specialties.index') }}">
+                        <i class="side-menu__icon fa fa-eye"></i>
+                        <span class="side-menu__label">@lang('main.specialties')</span>
+                    </a>
+                </li>
+            @endcan
+        <!-- Settings -->
+
+            <!-- Users & Roles -->
             @can('user-list')
                 <li class="side-item side-item-category">@lang('main.users_permissions')</li>
                 @can('user-list')
@@ -51,7 +66,9 @@
                 </li>
                 @endcan
             @endcan
+            <!-- Users & Roles -->
 
+            <!-- Settings -->
             @can('setting-list')
                 <li class="side-item side-item-category">@lang('main.settings')</li>
                 <li class="slide">
@@ -61,6 +78,7 @@
                     </a>
                 </li>
             @endcan
+            <!-- Settings -->
         </ul>
     </div>
 </aside>

@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'edc13cd27cc7e2b28433c13a565b85103ecbd23f',
+        'reference' => '09c734d30a692d66b6819f0e440c6ab1cef5f69f',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -388,7 +388,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'edc13cd27cc7e2b28433c13a565b85103ecbd23f',
+            'reference' => '09c734d30a692d66b6819f0e440c6ab1cef5f69f',
             'dev_requirement' => false,
         ),
         'laravel/tinker' => array(
@@ -721,8 +721,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0',
-                1 => '1.0.0 || 2.0.0 || 3.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
+                1 => '1.0|2.0',
             ),
         ),
         'psr/simple-cache' => array(
@@ -920,6 +920,15 @@
             'reference' => 'c6c1022351a901512170118436c764e473f6de8c',
             'dev_requirement' => true,
         ),
+        'spatie/laravel-package-tools' => array(
+            'pretty_version' => '1.12.1',
+            'version' => '1.12.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../spatie/laravel-package-tools',
+            'aliases' => array(),
+            'reference' => '09f80fa240d44fafb1c70657c74ee44ffa929357',
+            'dev_requirement' => false,
+        ),
         'spatie/laravel-permission' => array(
             'pretty_version' => '5.5.4',
             'version' => '5.5.4.0',
@@ -927,6 +936,15 @@
             'install_path' => __DIR__ . '/../spatie/laravel-permission',
             'aliases' => array(),
             'reference' => 'cb86fd87b43fcfc493c3f2b1de6fad100c078146',
+            'dev_requirement' => false,
+        ),
+        'spatie/laravel-translatable' => array(
+            'pretty_version' => '5.0.3',
+            'version' => '5.0.3.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../spatie/laravel-translatable',
+            'aliases' => array(),
+            'reference' => '06aa692efc2eed838ac47a6324dc179167a97b0b',
             'dev_requirement' => false,
         ),
         'swiftmailer/swiftmailer' => array(
