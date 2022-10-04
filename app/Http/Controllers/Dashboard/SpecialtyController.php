@@ -11,10 +11,14 @@ use Illuminate\Validation\Rule;
 
 class SpecialtyController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $title = trans('main.specialties');
-        $specialties = Specialty::latest()->paginate(10);
+        $specialties = Specialty::when($request->search, function ($q) use ($request) {
+            return $q->where('name->ar', '%' . $request->search . '%')
+                ->orWhere('name->en', 'LIKE', '%' . $request->search . '%')
+                ->orWhere('notes', 'LIKE', '%' . $request->search . '%');
+        })->latest()->paginate(10);
         return view('dashboard.specialties.index', compact('title', 'specialties'));
     }
 
