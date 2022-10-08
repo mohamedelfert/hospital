@@ -5,20 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
-class Specialty extends Model
+class Examination extends Model
 {
     use HasTranslations;
 
     public $translatable = ['name'];
 
-    protected $table = 'specialties';
+    protected $table = 'examinations';
 
     protected $fillable = ['id', 'name', 'notes'];
-
-    public function doctors()
-    {
-        return $this->hasMany(Doctor::class);
-    }
 
     public function price()
     {

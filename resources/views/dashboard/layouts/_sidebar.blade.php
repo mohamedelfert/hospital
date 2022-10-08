@@ -44,7 +44,55 @@
                     </a>
                 </li>
             @endcan
-        <!-- Settings -->
+            <!-- Specialties -->
+
+            <!-- Doctors -->
+            @can('doctor-list')
+                <li class="side-item side-item-category">@lang('main.doctors')</li>
+                <li class="slide">
+                    <a class="side-menu__item" href="{{ route('dashboard.doctors.index') }}">
+                        <i class="side-menu__icon fa fa-hospital"></i>
+                        <span class="side-menu__label">@lang('main.doctors')</span>
+                    </a>
+                </li>
+            @endcan
+            <!-- Doctors -->
+
+            <!-- Examinations -->
+            @can('examination-list')
+                <li class="side-item side-item-category">@lang('main.examinations')</li>
+                <li class="slide">
+                    <a class="side-menu__item" href="{{ route('dashboard.examinations.index') }}">
+                        <i class="side-menu__icon fa fa-bookmark"></i>
+                        <span class="side-menu__label">@lang('main.examinations')</span>
+                    </a>
+                </li>
+            @endcan
+            <!-- Examinations -->
+
+            <!-- Workdays -->
+            @can('workday-list')
+                <li class="side-item side-item-category">@lang('main.workdays')</li>
+                <li class="slide">
+                    <a class="side-menu__item" href="{{ route('dashboard.workdays.index') }}">
+                        <i class="side-menu__icon fa fa-calendar-day"></i>
+                        <span class="side-menu__label">@lang('main.workdays')</span>
+                    </a>
+                </li>
+            @endcan
+            <!-- Workdays -->
+
+            <!-- List Price -->
+            @can('price-list')
+                <li class="side-item side-item-category">@lang('main.prices')</li>
+                <li class="slide">
+                    <a class="side-menu__item" href="{{ route('dashboard.prices.index') }}">
+                        <i class="side-menu__icon fa fa-money-bill"></i>
+                        <span class="side-menu__label">@lang('main.prices')</span>
+                    </a>
+                </li>
+            @endcan
+            <!-- List Price -->
 
             <!-- Users & Roles -->
             @can('user-list')

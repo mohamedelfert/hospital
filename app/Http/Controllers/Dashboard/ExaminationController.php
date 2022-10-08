@@ -3,23 +3,21 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SpecialtyRequest;
-use App\Models\Specialty;
+use App\Models\Examination;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
-class SpecialtyController extends Controller
+class ExaminationController extends Controller
 {
     public function index(Request $request)
     {
-        $title = trans('main.specialties');
-        $specialties = Specialty::when($request->search, function ($q) use ($request) {
+        $title = trans('main.examinations');
+        $examinations = Examination::when($request->search, function ($q) use ($request) {
             return $q->where('name->ar', 'LIKE', '%' . $request->search . '%')
                 ->orWhere('name->en', 'LIKE', '%' . $request->search . '%')
                 ->orWhere('notes', 'LIKE', '%' . $request->search . '%');
         })->latest()->paginate(10);
-        return view('dashboard.specialties.index', compact('title', 'specialties'));
+        return view('dashboard.examinations.index', compact('title', 'examinations'));
     }
 
     public function create()
@@ -27,13 +25,17 @@ class SpecialtyController extends Controller
         //
     }
 
-    public function store(SpecialtyRequest $request)
+    public function store(Request $request)
     {
-        $validate = $request->validated();
+        $rules = [
+            'name' => 'required|unique:examinations,name->ar',
+            'name_en' => 'required|unique:examinations,name->en',
+        ];
+        $validate = $this->validate($request, $rules);
 
         try {
 
-            Specialty::create([
+            Examination::create([
                 'name' => [
                     'ar' => $request->name,
                     'en' => $request->name_en,
@@ -49,30 +51,27 @@ class SpecialtyController extends Controller
         }
     }
 
-    public function show(Specialty $specialty)
+    public function show(Examination $examination)
     {
         //
     }
 
-    public function edit(Specialty $specialty)
+    public function edit(Examination $examination)
     {
         //
     }
 
-    public function update(Request $request, Specialty $specialty)
+    public function update(Request $request, Examination $examination)
     {
         $rules = [
-            'name' => 'required|unique:specialties,name->ar,' . $specialty->id,
-            'name_en' => 'required|unique:specialties,name->en,' . $specialty->id,
-            // Or
-//            'name' => 'required|' . Rule::unique('specialties', 'name->ar')->ignore($this->id),
-//            'name_en' => 'required|' . Rule::unique('specialties', 'name->en')->ignore($this->id),
+            'name' => 'required|unique:examinations,name->ar,' . $examination->id,
+            'name_en' => 'required|unique:examinations,name->en,' . $examination->id,
         ];
         $validate = $this->validate($request, $rules);
 
         try {
 
-            $specialty->update([
+            $examination->update([
                 'name' => [
                     'ar' => $request->name,
                     'en' => $request->name_en,
@@ -88,9 +87,9 @@ class SpecialtyController extends Controller
         }
     }
 
-    public function destroy(Specialty $specialty)
+    public function destroy(Examination $examination)
     {
-        $specialty->delete();
+        $examination->delete();
         toastr()->success(trans('main.data_deleted_successfully'));
         return back();
     }

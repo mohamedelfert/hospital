@@ -50,8 +50,8 @@
 
                 <div class="card-header pb-0">
                     <div class="box-header with-border">
-                        <span style="display: block;margin-bottom:10px">@lang('main.specialties') : <small>( {{ $specialties->total() }} )</small></span>
-                        <form action="{{ route('dashboard.specialties.index') }}" method="get">
+                        <span style="display: block;margin-bottom:10px">@lang('main.examinations') : <small>( {{ $examinations->total() }} )</small></span>
+                        <form action="{{ route('dashboard.examinations.index') }}" method="get">
                             <div class="row">
                                 <div class="col-md-4">
                                     <input type="text" name="search" class="form-control" value="{{ request()->search }}"
@@ -60,10 +60,10 @@
                                 <div class="col-md-4">
                                     <button class="btn btn-primary btn-sm" title="@lang('main.search')">
                                         <i class="fa fa-search"></i></button>
-                                    <a class="btn btn-danger btn-sm" href="{{ route('dashboard.specialties.index') }}"
+                                    <a class="btn btn-danger btn-sm" href="{{ route('dashboard.examinations.index') }}"
                                        title="@lang('main.clear')">
                                         <i class="fa fa-eraser"></i></a>
-                                    @if(auth()->user()->hasPermissionTo('specialty-create'))
+                                    @if(auth()->user()->hasPermissionTo('examination-create'))
                                         <a class="modal-effect btn btn-primary btn-sm" data-effect="effect-scale"
                                            data-toggle="modal" href="#add"title="@lang('main.create')">
                                             <i class="fa fa-plus"></i>
@@ -81,43 +81,43 @@
 
                 <div class="card-body">
                     <div class="table-responsive hoverable-table">
-                        @if($specialties->count() > 0)
+                        @if($examinations->count() > 0)
                             <table class="table table-hover" id="example1" data-page-length='50' style=" text-align: center;">
                                 <thead>
                                     <tr>
                                         <th class="border-bottom-0">#</th>
-                                        <th class="border-bottom-0">@lang('main.specialty')</th>
+                                        <th class="border-bottom-0">@lang('main.examination')</th>
                                         <th class="border-bottom-0">@lang('main.notes')</th>
                                         <th class="border-bottom-0">@lang('main.control')</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($specialties as $index => $specialty)
+                                    @foreach ($examinations as $index => $examination)
                                         <tr>
                                             <td>{{ $index + 1 }}</td>
-                                            <td>{{ $specialty->name }}</td>
-                                            <td>{{ $specialty->notes }}</td>
+                                            <td>{{ $examination->name }}</td>
+                                            <td>{{ $examination->notes }}</td>
 
                                             <td>
-                                                @if(auth()->user()->hasPermissionTo('specialty-edit'))
+                                                @if(auth()->user()->hasPermissionTo('examination-edit'))
                                                     <a class="modal-effect btn btn-sm btn-info" data-effect="effect-scale"
-                                                       data-toggle="modal" href="#edit{{$specialty->id}}" title="@lang('main.edit')">
+                                                       data-toggle="modal" href="#edit{{$examination->id}}" title="@lang('main.edit')">
                                                         <i class="las la-pen"></i></a>
                                                 @else
                                                     <a class="btn btn-sm btn-info disabled"
                                                        title="@lang('main.edit')"><i class="las la-pen"></i></a>
                                                 @endif
 
-                                                @if(auth()->user()->hasPermissionTo('specialty-delete'))
+                                                @if(auth()->user()->hasPermissionTo('examination-delete'))
                                                     <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
-                                                       data-toggle="modal" href="#delete{{$specialty->id}}" title="@lang('main.delete')">
+                                                       data-toggle="modal" href="#delete{{$examination->id}}" title="@lang('main.delete')">
                                                         <i class="las la-trash"></i></a>
                                                 @endif
                                             </td>
                                         </tr>
 
                                         <!-- Edit -->
-                                        <div class="modal" id="edit{{$specialty->id}}">
+                                        <div class="modal" id="edit{{$examination->id}}">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content modal-content-demo">
                                                     <div class="modal-header">
@@ -126,26 +126,26 @@
                                                                 data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <form action="{{ route('dashboard.specialties.update', $specialty->id) }}" method="post">
+                                                    <form action="{{ route('dashboard.examinations.update', $examination->id) }}" method="post">
                                                         {{ method_field('patch') }}
                                                         {{ csrf_field() }}
 
                                                         <div class="modal-body">
                                                             <div class="row mb-3">
                                                                 <div class="col">
-                                                                    <label for="name">{{ trans('main.specialty_name_ar') }}</label>
+                                                                    <label for="name">{{ trans('main.examination_name_ar') }}</label>
                                                                     <input type="text" class="form-control" id="name" name="name"
-                                                                           value="{{ $specialty->getTranslation('name','ar') }}" required>
+                                                                           value="{{ $examination->getTranslation('name','ar') }}" required>
                                                                 </div>
                                                                 <div class="col">
-                                                                    <label for="name_en">{{ trans('main.specialty_name_en') }}</label>
+                                                                    <label for="name_en">{{ trans('main.examination_name_en') }}</label>
                                                                     <input type="text" class="form-control" id="name_en" name="name_en"
-                                                                           value="{{ $specialty->getTranslation('name','en') }}" required>
+                                                                           value="{{ $examination->getTranslation('name','en') }}" required>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="notes">{{ trans('main.notes') }}</label>
-                                                                <textarea class="form-control" id="notes" name="notes" rows="3">{{ $specialty->notes }}</textarea>
+                                                                <textarea class="form-control" id="notes" name="notes" rows="3">{{ $examination->notes }}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
@@ -161,7 +161,7 @@
                                         <!-- End Edit -->
 
                                         <!-- Delete -->
-                                        <div class="modal" id="delete{{$specialty->id}}">
+                                        <div class="modal" id="delete{{$examination->id}}">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content modal-content-demo">
                                                     <div class="modal-header">
@@ -170,15 +170,15 @@
                                                                 data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <form action="{{ route('dashboard.specialties.destroy', $specialty->id) }}" method="post">
+                                                    <form action="{{ route('dashboard.examinations.destroy', $examination->id) }}" method="post">
                                                         {{ method_field('delete') }}
                                                         {{ csrf_field() }}
 
                                                         <div class="modal-body">
                                                             <p>@lang('main.delete_msg')</p><br>
-                                                            <input type="hidden" name="id" id="id" value="{{$specialty->id}}">
+                                                            <input type="hidden" name="id" id="id" value="{{$examination->id}}">
                                                             <input class="form-control" name="name" id="name"
-                                                                   value="{{ $specialty->name }}" type="text" readonly>
+                                                                   value="{{ $examination->name }}" type="text" readonly>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
@@ -200,7 +200,7 @@
                                 <thead>
                                     <tr>
                                         <th class="border-bottom-0">#</th>
-                                        <th class="border-bottom-0">@lang('main.specialty')</th>
+                                        <th class="border-bottom-0">@lang('main.examination')</th>
                                         <th class="border-bottom-0">@lang('main.notes')</th>
                                         <th class="border-bottom-0">@lang('main.control')</th>
                                     </tr>
@@ -227,17 +227,17 @@
                 <div class="modal-header">
                     <h6 class="modal-title">@lang('main.add')</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                 </div>
-                <form action="{{ route('dashboard.specialties.store') }}" method="post">
+                <form action="{{ route('dashboard.examinations.store') }}" method="post">
                     {{ csrf_field() }}
 
                     <div class="modal-body">
                         <div class="row mb-3">
                             <div class="col">
-                                <label for="name">{{ trans('main.specialty_name_ar') }}</label>
+                                <label for="name">{{ trans('main.examination_name_ar') }}</label>
                                 <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required>
                             </div>
                             <div class="col">
-                                <label for="name_en">{{ trans('main.specialty_name_en') }}</label>
+                                <label for="name_en">{{ trans('main.examination_name_en') }}</label>
                                 <input type="text" class="form-control" id="name_en" name="name_en" value="{{ old('name_en') }}" required>
                             </div>
                         </div>

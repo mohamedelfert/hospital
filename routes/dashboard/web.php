@@ -17,6 +17,18 @@ Route::group(
         /**************************** Specialties *******************************/
         Route::resource('specialties', 'SpecialtyController');
 
+        /**************************** Doctors *******************************/
+        Route::resource('doctors', 'DoctorController');
+
+        /**************************** Examinations *******************************/
+        Route::resource('examinations', 'ExaminationController');
+
+        /**************************** Examinations *******************************/
+        Route::resource('workdays', 'WorkdayController');
+
+        /**************************** List Price *******************************/
+        Route::resource('prices', 'ListPriceController');
+
         /**************************** Users & Roles *******************************/
         Route::resource('users', 'UserController');
         Route::get('/users/profile/{id}', 'UserController@showProfile')->name('users.showProfile');
