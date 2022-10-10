@@ -88,6 +88,8 @@
                                         <th class="border-bottom-0">#</th>
                                         <th class="border-bottom-0">@lang('main.workday')</th>
                                         <th class="border-bottom-0">@lang('main.doctor')</th>
+                                        <th class="border-bottom-0">@lang('main.from')</th>
+                                        <th class="border-bottom-0">@lang('main.to')</th>
                                         <th class="border-bottom-0">@lang('main.control')</th>
                                     </tr>
                                 </thead>
@@ -96,7 +98,9 @@
                                         <tr>
                                             <td>{{ $index + 1 }}</td>
                                             <td>{{ $workday->day }}</td>
-                                            <td>{{ $workday->doctors->name }}</td>
+                                            <td>{{ $workday->doctor->name }}</td>
+                                            <td>{{ $workday->from_time }}</td>
+                                            <td>{{ $workday->to_time }}</td>
 
                                             <td>
                                                 @if(auth()->user()->hasPermissionTo('workday-edit'))
@@ -153,6 +157,14 @@
                                                                             <option value="{{ $doctor->id }}" {{ $workday->doctor_id === $doctor->id ? 'selected':'' }}>{{ $doctor->name }}</option>
                                                                         @endforeach
                                                                     </select>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <label for="from_time">@lang('main.from')</label>
+                                                                    <input type="time" name="from_time" id="from_time" class="form-control" value="{{ $workday->from_time }}">
+                                                                </div>
+                                                                <div class="col">
+                                                                    <label for="to_time">@lang('main.to')</label>
+                                                                    <input type="time" name="to_time" id="to_time" class="form-control" value="{{ $workday->to_time }}">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -266,6 +278,14 @@
                                                 <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                    <div class="col form-group">
+                                        <label for="from_time">@lang('main.from')</label>
+                                        <input type="time" name="from_time" id="from_time" class="form-control" value="{{ old('from_time') }}">
+                                    </div>
+                                    <div class="col form-group">
+                                        <label for="to_time">@lang('main.to')</label>
+                                        <input type="time" name="to_time" id="to_time" class="form-control" value="{{ old('to_time') }}">
                                     </div>
                                     <div class="col-md-2 col-sm-12 form-group d-flex align-items-center mt-4">
                                         <button class="btn btn-danger" data-repeater-delete type="button">

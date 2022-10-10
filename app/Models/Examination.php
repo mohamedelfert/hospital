@@ -15,8 +15,8 @@ class Examination extends Model
 
     protected $fillable = ['id', 'name', 'notes'];
 
-    public function price()
+    public function prices()
     {
-        return $this->belongsTo(ListPrice::class);
+        return $this->hasMany(ListPrice::class);
     }
 }

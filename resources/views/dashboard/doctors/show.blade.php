@@ -122,6 +122,8 @@
                                                             <tr>
                                                                 <th class="wd-5p border-bottom-0">#</th>
                                                                 <th class="wd-10p border-bottom-0">@lang('main.days')</th>
+                                                                <th class="wd-10p border-bottom-0">@lang('main.from')</th>
+                                                                <th class="wd-10p border-bottom-0">@lang('main.to')</th>
                                                                 <th class="wd-10p border-bottom-0">@lang('main.last_edit')</th>
                                                             </tr>
                                                         </thead>
@@ -130,6 +132,8 @@
                                                             <tr>
                                                                 <th class="wd-5p border-bottom-0">{{ $index + 1 }}</th>
                                                                 <th class="wd-10p border-bottom-0">{{ $workday->day }}</th>
+                                                                <th class="wd-10p border-bottom-0">{{ $workday->from_time }}</th>
+                                                                <th class="wd-10p border-bottom-0">{{ $workday->to_time }}</th>
                                                                 <th class="wd-10p border-bottom-0">{{ $workday->updated_at }}</th>
                                                             </tr>
                                                         @endforeach
@@ -146,18 +150,32 @@
                                                         <thead>
                                                             <tr>
                                                                 <th class="wd-5p border-bottom-0">#</th>
+                                                                <th class="wd-10p border-bottom-0">@lang('main.specialty')</th>
                                                                 <th class="wd-10p border-bottom-0">@lang('main.examination_type')</th>
                                                                 <th class="wd-10p border-bottom-0">@lang('main.price')</th>
                                                                 <th class="wd-10p border-bottom-0">@lang('main.last_edit')</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                        @foreach ($doctor->specialty->prices as $index => $price)
                                                             <tr>
-                                                                <th class="wd-5p border-bottom-0">#</th>
-                                                                <th class="wd-10p border-bottom-0">رقم الفاتوره</th>
-                                                                <th class="wd-10p border-bottom-0">القسم</th>
-                                                                <th class="wd-10p border-bottom-0">المنتج</th>
+                                                                <th class="wd-5p border-bottom-0">{{ $index + 1 }}</th>
+                                                                <th class="wd-10p border-bottom-0">{{ $price->specialty->name }}</th>
+                                                                <th class="wd-10p border-bottom-0">
+                                                                    @if($price->examination->getTranslation('name','en') === 'examination')
+                                                                        <span class="badge badge-pill badge-success" style="width: 25%">
+                                                                            {{ $price->examination->name }}
+                                                                        </span>
+                                                                    @elseif($price->examination->getTranslation('name','en') === 'track')
+                                                                        <span class="badge badge-pill badge-secondary" style="width: 25%">
+                                                                            {{ $price->examination->name }}
+                                                                        </span>
+                                                                    @endif
+                                                                </th>
+                                                                <th class="wd-10p border-bottom-0">{{ $price->price }}</th>
+                                                                <th class="wd-10p border-bottom-0">{{ $price->updated_at }}</th>
                                                             </tr>
+                                                        @endforeach
                                                         </tbody>
                                                     </table>
                                                 </div>

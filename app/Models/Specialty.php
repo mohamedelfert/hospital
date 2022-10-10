@@ -20,8 +20,8 @@ class Specialty extends Model
         return $this->hasMany(Doctor::class);
     }
 
-    public function price()
+    public function prices()
     {
-        return $this->belongsTo(ListPrice::class);
+        return $this->hasMany(ListPrice::class);
     }
 }

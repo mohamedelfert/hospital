@@ -18,6 +18,8 @@ class CreateWorkdaysTable extends Migration
             $table->string('day');
             $table->integer('doctor_id')->unsigned();
             $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
+            $table->time('from_time');
+            $table->time('to_time');
             $table->timestamps();
         });
     }

@@ -52,6 +52,14 @@
                     </div>
 
                     <div class="form-group row">
+                        {!! Form::label('phone',trans('main.phone'),['class'=>'col-sm-2 col-form-label']) !!}
+                        <div class="col-sm-10">
+                            {!! Form::text('phone',setting()->phone,['class'=>'form-control','id'=>'phone','placeholder'=>@trans('main.phone'),'required']) !!}
+                            @error('email')<span class="text-danger">{{ $message }}</span>@enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         {!! Form::label('logo',trans('main.logo'),['class'=>'col-sm-2 col-form-label']) !!}
                         <div class="col-sm-10">
                             {!! Form::file('logo',['class'=>'form-control']) !!}

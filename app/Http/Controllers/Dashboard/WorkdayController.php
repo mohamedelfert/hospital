@@ -35,6 +35,8 @@ class WorkdayController extends Controller
         $rules = [
             'workdays_list.*.day' => 'required',
             'workdays_list.*.doctor_id' => 'required',
+            'workdays_list.*.from_time' => 'required',
+            'workdays_list.*.to_time' => 'required',
         ];
         $validate = $this->validate($request, $rules);
 
@@ -69,6 +71,8 @@ class WorkdayController extends Controller
                         'en' => $workday['day'],
                     ],
                     'doctor_id' => $workday['doctor_id'],
+                    'from_time' => $workday['from_time'],
+                    'to_time' => $workday['to_time'],
                 ]);
             }
 
@@ -94,6 +98,8 @@ class WorkdayController extends Controller
         $rules = [
             'day' => 'required',
             'doctor_id' => 'required',
+            'from_time' => 'required',
+            'to_time' => 'required',
         ];
         $validate = $this->validate($request, $rules);
 
@@ -123,6 +129,8 @@ class WorkdayController extends Controller
                     'en' => $request->day,
                 ],
                 'doctor_id' => $request->doctor_id,
+                'from_time' => $request->from_time,
+                'to_time' => $request->to_time,
             ]);
 
             toastr()->success(trans('main.data_updated_successfully'));

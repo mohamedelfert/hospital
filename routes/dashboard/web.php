@@ -29,6 +29,12 @@ Route::group(
         /**************************** List Price *******************************/
         Route::resource('prices', 'ListPriceController');
 
+        /**************************** Reservations *******************************/
+        Route::resource('reservations', 'ReservationController');
+        Route::get('complete/{id}', 'ReservationController@complete')->name('complete');
+        Route::get('doctor', 'ReservationController@getDoctors')->name('doctor');
+        Route::get('day', 'ReservationController@getDays')->name('day');
+
         /**************************** Users & Roles *******************************/
         Route::resource('users', 'UserController');
         Route::get('/users/profile/{id}', 'UserController@showProfile')->name('users.showProfile');

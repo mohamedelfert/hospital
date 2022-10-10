@@ -58,6 +58,18 @@
             @endcan
             <!-- Doctors -->
 
+            <!-- Reservations -->
+            @can('reservation-list')
+                <li class="side-item side-item-category">@lang('main.reservations')</li>
+                <li class="slide">
+                    <a class="side-menu__item" href="{{ route('dashboard.reservations.index') }}">
+                        <i class="side-menu__icon fa fa-ticket-alt"></i>
+                        <span class="side-menu__label">@lang('main.reservations')</span>
+                    </a>
+                </li>
+            @endcan
+            <!-- Reservations -->
+
             <!-- Examinations -->
             @can('examination-list')
                 <li class="side-item side-item-category">@lang('main.examinations')</li>

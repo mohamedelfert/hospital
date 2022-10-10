@@ -13,9 +13,9 @@ class Workdays extends Model
 
     protected $table = 'workdays';
 
-    protected $fillable = ['id', 'day', 'doctor_id'];
+    protected $fillable = ['id', 'day', 'doctor_id', 'from_time', 'to_time'];
 
-    public function doctors()
+    public function doctor()
     {
         return $this->belongsTo(Doctor::class, 'doctor_id');
     }
