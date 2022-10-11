@@ -112,6 +112,9 @@ return [
     'data_updated_successfully' => 'تم تحديث البيانات بنجاح',
     'data_deleted_successfully' => 'تم حذف البيانات بنجاح',
 
+    'last_reservations' => 'اخر الحجوزات المضافه',
+    'last_doctors' => 'اخر الاطباء المضافين',
+
     'schedule' => 'جدول',
     'examination_prices' => 'أسعار الفحص',
     'bill_to' => 'فاتوره الي',

@@ -179,5 +179,9 @@ return [
         'icon' => 'الايقونه',
         'name_en' => 'الاسم انجليزي',
         'specialty_id' => 'التخصص',
+        'examination_id' => 'الفحص',
+        'doctor_id' => 'طبيب',
+        'from_time' => 'من وقت',
+        'to_time' => 'الي وقت',
     ],
 ];

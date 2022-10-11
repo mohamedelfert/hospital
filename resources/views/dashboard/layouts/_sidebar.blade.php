@@ -20,7 +20,15 @@
                 </div>
                 <div class="user-info">
                     <h4 class="font-weight-semibold mt-3 mb-0">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</h4>
-                    <span class="mb-0 text-muted">{{ auth()->user()->role_name }}</span>
+                    <span class="mb-0 text-muted">
+                        @if (auth()->user()->role_name == 'super_admin')
+                            @lang('main.super_admin')
+                        @elseif(auth()->user()->role_name == 'admin')
+                            @lang('main.admin')
+                        @elseif(auth()->user()->role_name == 'user')
+                            @lang('main.user')
+                        @endif
+                    </span>
                 </div>
             </div>
         </div>
