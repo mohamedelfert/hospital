@@ -133,7 +133,6 @@
                                 <div class="col">
                                     <label for="date">{{ trans('main.date') }}</label>
                                     <input class="form-control fc-datepicker" type="date" id="date" name="date" required>
-
                                 </div>
                             </div>
                         </div>

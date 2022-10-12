@@ -99,8 +99,8 @@
                                             <td>{{ $index + 1 }}</td>
                                             <td>{{ $workday->day }}</td>
                                             <td>{{ $workday->doctor->name }}</td>
-                                            <td>{{ $workday->from_time }}</td>
-                                            <td>{{ $workday->to_time }}</td>
+                                            <td>{{ Carbon\Carbon::parse($workday->from_time)->format('g:i A') }}</td>
+                                            <td>{{ Carbon\Carbon::parse($workday->to_time)->format('g:i A') }}</td>
 
                                             <td>
                                                 @if(auth()->user()->hasPermissionTo('workday-edit'))

@@ -64,7 +64,7 @@ class ReservationController extends Controller
 
         try {
 
-            Reservation::create([
+            $reservation = Reservation::create([
                 'name' => $request->name,
                 'phone' => $request->phone,
                 'address' => $request->address,
@@ -81,7 +81,7 @@ class ReservationController extends Controller
             ]);
 
             toastr()->success(trans('main.data_added_successfully'));
-            return redirect()->route('dashboard.reservations.index');
+            return redirect()->route('dashboard.reservations.show', $reservation->id);
 
         } catch (Exception $e) {
             return redirect()->back()->withErrors(['errors' => $e->getMessage()]);

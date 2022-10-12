@@ -132,8 +132,8 @@
                                                             <tr>
                                                                 <th class="wd-5p border-bottom-0">{{ $index + 1 }}</th>
                                                                 <th class="wd-10p border-bottom-0">{{ $workday->day }}</th>
-                                                                <th class="wd-10p border-bottom-0">{{ $workday->from_time }}</th>
-                                                                <th class="wd-10p border-bottom-0">{{ $workday->to_time }}</th>
+                                                                <th class="wd-10p border-bottom-0">{{ Carbon\Carbon::parse($workday->from_time)->format('g:i A') }}</th>
+                                                                <th class="wd-10p border-bottom-0">{{ Carbon\Carbon::parse($workday->to_time)->format('g:i A') }}</th>
                                                                 <th class="wd-10p border-bottom-0">{{ $workday->updated_at }}</th>
                                                             </tr>
                                                         @endforeach

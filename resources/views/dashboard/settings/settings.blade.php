@@ -55,7 +55,15 @@
                         {!! Form::label('phone',trans('main.phone'),['class'=>'col-sm-2 col-form-label']) !!}
                         <div class="col-sm-10">
                             {!! Form::text('phone',setting()->phone,['class'=>'form-control','id'=>'phone','placeholder'=>@trans('main.phone'),'required']) !!}
-                            @error('email')<span class="text-danger">{{ $message }}</span>@enderror
+                            @error('phone')<span class="text-danger">{{ $message }}</span>@enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        {!! Form::label('address',trans('main.address'),['class'=>'col-sm-2 col-form-label']) !!}
+                        <div class="col-sm-10">
+                            {!! Form::text('address',setting()->address,['class'=>'form-control','id'=>'address','placeholder'=>@trans('main.address'),'required']) !!}
+                            @error('address')<span class="text-danger">{{ $message }}</span>@enderror
                         </div>
                     </div>
 
@@ -83,6 +91,30 @@
                                 <img class="img-fluid mb-3" src="{{ setting()->icon_path }}" alt="{{@trans('main.icon')}}" style="width: 100px;height: 80px;">
                             </div>
                         @endif
+                    </div>
+
+                    <div class="form-group row">
+                        {!! Form::label('facebook',trans('main.facebook'),['class'=>'col-sm-2 col-form-label']) !!}
+                        <div class="col-sm-10">
+                            {!! Form::text('facebook',setting()->facebook,['class'=>'form-control','id'=>'facebook','placeholder'=>@trans('main.facebook'),'required']) !!}
+                            @error('facebook')<span class="text-danger">{{ $message }}</span>@enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        {!! Form::label('twitter',trans('main.twitter'),['class'=>'col-sm-2 col-form-label']) !!}
+                        <div class="col-sm-10">
+                            {!! Form::text('twitter',setting()->twitter,['class'=>'form-control','id'=>'twitter','placeholder'=>@trans('main.twitter'),'required']) !!}
+                            @error('twitter')<span class="text-danger">{{ $message }}</span>@enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        {!! Form::label('instagram',trans('main.instagram'),['class'=>'col-sm-2 col-form-label']) !!}
+                        <div class="col-sm-10">
+                            {!! Form::text('instagram',setting()->instagram,['class'=>'form-control','id'=>'instagram','placeholder'=>@trans('main.instagram'),'required']) !!}
+                            @error('instagram')<span class="text-danger">{{ $message }}</span>@enderror
+                        </div>
                     </div>
 
                     <div class="form-group row">

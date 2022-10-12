@@ -35,6 +35,9 @@ Route::group(
         Route::get('doctor', 'ReservationController@getDoctors')->name('doctor');
         Route::get('day', 'ReservationController@getDays')->name('day');
 
+        /**************************** Reservations *******************************/
+        Route::resource('contacts', 'ContactController');
+
         /**************************** Users & Roles *******************************/
         Route::resource('users', 'UserController');
         Route::get('/users/profile/{id}', 'UserController@showProfile')->name('users.showProfile');

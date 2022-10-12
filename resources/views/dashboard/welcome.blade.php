@@ -90,7 +90,7 @@
                             </div>
                             <div class="float-left">
                                 <p class="card-text text-muted mb-1">@lang('main.users')</p>
-                                <h3>{{ \App\Models\User::count() }}</h3>
+                                <h3>{{ \App\Models\User::where('role_name', '!=', 'super_admin')->count() }}</h3>
                             </div>
                         </div>
                     </div>

@@ -44,7 +44,6 @@
 
             <!-- Specialties -->
             @can('specialty-list')
-                <li class="side-item side-item-category">@lang('main.specialties')</li>
                 <li class="slide">
                     <a class="side-menu__item" href="{{ route('dashboard.specialties.index') }}">
                         <i class="side-menu__icon fa fa-eye"></i>
@@ -56,7 +55,6 @@
 
             <!-- Doctors -->
             @can('doctor-list')
-                <li class="side-item side-item-category">@lang('main.doctors')</li>
                 <li class="slide">
                     <a class="side-menu__item" href="{{ route('dashboard.doctors.index') }}">
                         <i class="side-menu__icon fa fa-hospital"></i>
@@ -68,7 +66,6 @@
 
             <!-- Reservations -->
             @can('reservation-list')
-                <li class="side-item side-item-category">@lang('main.reservations')</li>
                 <li class="slide">
                     <a class="side-menu__item" href="{{ route('dashboard.reservations.index') }}">
                         <i class="side-menu__icon fa fa-ticket-alt"></i>
@@ -80,7 +77,6 @@
 
             <!-- Examinations -->
             @can('examination-list')
-                <li class="side-item side-item-category">@lang('main.examinations')</li>
                 <li class="slide">
                     <a class="side-menu__item" href="{{ route('dashboard.examinations.index') }}">
                         <i class="side-menu__icon fa fa-bookmark"></i>
@@ -92,7 +88,6 @@
 
             <!-- Workdays -->
             @can('workday-list')
-                <li class="side-item side-item-category">@lang('main.workdays')</li>
                 <li class="slide">
                     <a class="side-menu__item" href="{{ route('dashboard.workdays.index') }}">
                         <i class="side-menu__icon fa fa-calendar-day"></i>
@@ -104,10 +99,9 @@
 
             <!-- List Price -->
             @can('price-list')
-                <li class="side-item side-item-category">@lang('main.prices')</li>
                 <li class="slide">
                     <a class="side-menu__item" href="{{ route('dashboard.prices.index') }}">
-                        <i class="side-menu__icon fa fa-money-bill"></i>
+                        <i class="side-menu__icon fa fa-dollar-sign"></i>
                         <span class="side-menu__label">@lang('main.prices')</span>
                     </a>
                 </li>
@@ -116,7 +110,6 @@
 
             <!-- Users & Roles -->
             @can('user-list')
-                <li class="side-item side-item-category">@lang('main.users_permissions')</li>
                 @can('user-list')
                     <li class="slide">
                     <a class="side-menu__item" href="{{ route('dashboard.users.index') }}">
@@ -137,8 +130,18 @@
             <!-- Users & Roles -->
 
             <!-- Settings -->
+            @can('contact-list')
+                <li class="slide">
+                    <a class="side-menu__item" href="{{ route('dashboard.contacts.index') }}">
+                        <i class="side-menu__icon fa fa-envelope"></i>
+                        <span class="side-menu__label">@lang('main.contacts')</span>
+                    </a>
+                </li>
+            @endcan
+        <!-- Settings -->
+
+            <!-- Settings -->
             @can('setting-list')
-                <li class="side-item side-item-category">@lang('main.settings')</li>
                 <li class="slide">
                     <a class="side-menu__item" href="{{ route('dashboard.settings.index') }}">
                         <i class="side-menu__icon fa fa-cogs"></i>

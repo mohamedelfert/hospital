@@ -20,6 +20,10 @@ class SettingsTableSeeder extends Seeder
         $data['icon'] = 'icon.jpg';
         $data['email'] = 'info@app.com';
         $data['phone'] = '01153225410';
+        $data['address'] = 'Tanta,Egypt';
+        $data['facebook'] = 'www.facebook.com';
+        $data['twitter'] = 'www.twitter.com';
+        $data['instagram'] = 'www.instagram.com';
         $data['main_lang'] = 'arabic';
         $data['description'] = 'Description Here';
         $data['keywords'] = 'dashboard,dash';
